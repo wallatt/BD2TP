@@ -23,14 +23,14 @@ public class App
 
         //Tipo tipo, String descripcion, Laboratorio laboratorio, String codigo, double precio
         Producto producto01 = new Producto(new Tipo("Perfumeria"),"perfume barato", lab1, "001",50.5 );
-        Producto producto02 = new Producto(new Tipo("Perfumeria"),"perfume medio", lab2, "002",120.9 );
+        Producto producto02 = new Producto(new Tipo("Perfumeria"),"Pinta Labios", lab2, "002",120.9 );
         Producto producto03 = new Producto(new Tipo("Perfumeria"),"perfume caro", lab1, "003",4000 );
         Producto producto04 = new Producto(new Tipo("Medicamento"),"Insulina", lab2, "004",100 );
-        Producto producto05 = new Producto(new Tipo("Medicamento"),"Efedrina", lab1, "005",150 );
+        Producto producto05 = new Producto(new Tipo("Medicamento"),"Alplac", lab1, "005",150 );
         Producto producto06 = new Producto(new Tipo("Medicamento"),"Aspirina", lab2, "006",500 );
         Producto producto07 = new Producto(new Tipo("Medicamento"),"Bilirubina", lab1, "007",780 );
-        Producto producto08 = new Producto(new Tipo("Medicamento"),"Golondrina", lab2, "008",1520 );
-        Producto producto09 = new Producto(new Tipo("Medicamento"),"Chilindrina", lab1, "009",784 );
+        Producto producto08 = new Producto(new Tipo("Medicamento"),"Vitamina D", lab2, "008",1520 );
+        Producto producto09 = new Producto(new Tipo("Medicamento"),"Ketorolac", lab1, "009",784 );
         Producto producto10 = new Producto(new Tipo("Medicamento"),"Ketamina", lab2, "010",4521 );
 
         List<Producto> catalogo = new ArrayList<Producto>();

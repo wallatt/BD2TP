@@ -7,23 +7,23 @@ public class Venta {
     private LocalDate fecha;
     private String nroTicket;
     private double totalVenta;
-    private FormaPago formaPago;
     private Persona cliente;
-    private Persona ayudante;
+    private FormaPago formaPago;
+    private List<VentaDetalle> productos;
     private Persona cajero;
-    private List<VentaDetalle> ventaDetalleList;
+    private Persona ayudante;
     private Sucursal sucursal;
 
 
-    public Venta(LocalDate fecha, String nroTicket, FormaPago formaPago, Persona cliente, Persona ayudante, Persona cajero, List<VentaDetalle> ventaDetalleList, Sucursal sucursal) {
+    public Venta(LocalDate fecha, String nroTicket, FormaPago formaPago, Persona cliente, Persona ayudante, Persona cajero, List<VentaDetalle> productos, Sucursal sucursal) {
         this.fecha = fecha;
         this.nroTicket = nroTicket;
-        this.totalVenta = calcularTotal(ventaDetalleList);
+        this.totalVenta = calcularTotal(productos);
         this.formaPago = formaPago;
         this.cliente = cliente;
         this.ayudante = ayudante;
         this.cajero = cajero;
-        this.ventaDetalleList = ventaDetalleList;
+        this.productos = productos;
         this.sucursal = sucursal;
     }
     public Venta(){};
@@ -92,12 +92,12 @@ public class Venta {
         this.cajero = cajero;
     }
 
-    public List<VentaDetalle> getVentaDetalleList() {
-        return ventaDetalleList;
+    public List<VentaDetalle> getProductos() {
+        return productos;
     }
 
-    public void setVentaDetalleList(List<VentaDetalle> ventaDetalleList) {
-        this.ventaDetalleList = ventaDetalleList;
+    public void setProductos(List<VentaDetalle> productos) {
+        this.productos = productos;
     }
 
     public double calcularTotal(List<VentaDetalle> listaDetalle){
