@@ -4,10 +4,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.unla.mongodbtp.entidades.*;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 
 public class App
@@ -15,23 +13,25 @@ public class App
     //
     public static void main( String[] args )
     {
-        //Intancio datos
+        //Intanciamiento de datos
+        //Los datos de productos, y clientes y sucursal son generados manualemnte
+        //luego estos puede utilizarse para generar automaticamente ventas, que toman un cliente aleatorio y le incorporan entre 1 y 5 productos a su compra, las cantidades y fechas de compra, tambien son generadas automaticamente
         Tipo perfumeria = new Tipo("Perfumeria");
         Tipo medicamento = new Tipo("Medicamento");
         Laboratorio lab1 = new Laboratorio("Remediar");
         Laboratorio lab2 = new Laboratorio("DrograsPlus");
 
-        //Tipo tipo, String descripcion, Laboratorio laboratorio, String codigo, double precio
-        Producto producto01 = new Producto(new Tipo("Perfumeria"),"perfume barato", lab1, "001",50.5 );
-        Producto producto02 = new Producto(new Tipo("Perfumeria"),"Pinta Labios", lab2, "002",120.9 );
-        Producto producto03 = new Producto(new Tipo("Perfumeria"),"perfume caro", lab1, "003",4000 );
-        Producto producto04 = new Producto(new Tipo("Medicamento"),"Insulina", lab2, "004",100 );
-        Producto producto05 = new Producto(new Tipo("Medicamento"),"Alplac", lab1, "005",150 );
-        Producto producto06 = new Producto(new Tipo("Medicamento"),"Aspirina", lab2, "006",500 );
-        Producto producto07 = new Producto(new Tipo("Medicamento"),"Bilirubina", lab1, "007",780 );
-        Producto producto08 = new Producto(new Tipo("Medicamento"),"Vitamina D", lab2, "008",1520 );
-        Producto producto09 = new Producto(new Tipo("Medicamento"),"Ketorolac", lab1, "009",784 );
-        Producto producto10 = new Producto(new Tipo("Medicamento"),"Ketamina", lab2, "010",4521 );
+
+        Producto producto01 = new Producto(perfumeria,"perfume barato", lab1, "001",50.5 );
+        Producto producto02 = new Producto(perfumeria,"Pinta Labios", lab2, "002",120.9 );
+        Producto producto03 = new Producto(perfumeria,"perfume caro", lab1, "003",4000 );
+        Producto producto04 = new Producto(medicamento,"Insulina", lab2, "004",100 );
+        Producto producto05 = new Producto(medicamento,"Alplac", lab1, "005",150 );
+        Producto producto06 = new Producto(medicamento,"Aspirina", lab2, "006",500 );
+        Producto producto07 = new Producto(medicamento,"Bilirubina", lab1, "007",780 );
+        Producto producto08 = new Producto(medicamento,"Vitamina D", lab2, "008",1520 );
+        Producto producto09 = new Producto(medicamento,"Ketorolac", lab1, "009",784 );
+        Producto producto10 = new Producto(medicamento,"Ketamina", lab2, "010",4521 );
 
         List<Producto> catalogo = new ArrayList<Producto>();
         catalogo.add(producto01);
@@ -44,9 +44,6 @@ public class App
         catalogo.add(producto08);
         catalogo.add(producto09);
         catalogo.add(producto10);
-
-
-        Metodos m = new Metodos();
 
         Domicilio dom1 = new Domicilio("Callao",500,"Lanus", "Buenos Aires");
         Domicilio dom2 = new Domicilio("Santa Fe",600,"Banfield", "Buenos Aires");
@@ -134,19 +131,21 @@ public class App
         empleados1.add(per13);
         empleados1.add(per14);
         List<Persona> empleados2 = new ArrayList<Persona>();
-        empleados1.add(per15);
-        empleados1.add(per16);
-        empleados1.add(per17);
+        empleados2.add(per15);
+        empleados2.add(per16);
+        empleados2.add(per17);
         List<Persona> empleados3 = new ArrayList<Persona>();
-        empleados1.add(per18);
-        empleados1.add(per19);
-        empleados1.add(per20);
+        empleados3.add(per18);
+        empleados3.add(per19);
+        empleados3.add(per20);
 
 
         Sucursal sucursal1 = new Sucursal(dom22,empleados1,per11,101);
         Sucursal sucursal2 = new Sucursal(dom23,empleados2,per15,102);
         Sucursal sucursal3 = new Sucursal(dom24,empleados3,per18,103);
 
+        //Clase de que autogenera datos, ventas, detalles de ventas.
+        Metodos m = new Metodos();
 
         //****Generacion Lista de Ventas
         //40 ventas para sucursal1
@@ -160,12 +159,12 @@ public class App
             ventas.add(venta);
         }
         for(int i = 40; i < 70; i++){
-            Venta venta = m.generarVentaRandom(clientes,catalogo,sucursal1);
+            Venta venta = m.generarVentaRandom(clientes,catalogo,sucursal2);
             String nroTicket = venta.getNroTicket() + (i+1);
             venta.setNroTicket(nroTicket);
             ventas.add(venta);
         }for(int i = 70; i < 90; i++){
-        Venta venta = m.generarVentaRandom(clientes,catalogo,sucursal1);
+        Venta venta = m.generarVentaRandom(clientes,catalogo,sucursal3);
         String nroTicket = venta.getNroTicket() + (i+1);
         venta.setNroTicket(nroTicket);
         ventas.add(venta);

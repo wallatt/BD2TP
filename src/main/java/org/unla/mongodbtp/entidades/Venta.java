@@ -26,7 +26,7 @@ public class Venta {
         this.productos = productos;
         this.sucursal = sucursal;
     }
-    public Venta(){};
+    public Venta(){}
 
     public Sucursal getSucursal() {
         return sucursal;
