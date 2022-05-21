@@ -14,7 +14,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
 
-public class App
+public class GeneracionYGuardado
 {
     //
     public static void main( String[] args )
@@ -31,23 +31,25 @@ public class App
         System.out.println(jsonString);
 
         //3
+        //Conexion a MongoDB
+        MongoClient mongoClient = new MongoClient("localhost", 27017);
+        MongoDatabase database = mongoClient.getDatabase("ventas_BD2");
+        MongoCollection<Document> collection = database.getCollection("ventas");
+
+        //4
         //Guardado de cada venta en MongoDB
-        try {
-            MongoClient mongoClient = new MongoClient("localhost", 27017);
-            MongoDatabase database = mongoClient.getDatabase("ventas_BD2");
-            MongoCollection<Document> collection = database.getCollection("ventas");
-
+        if(collection.countDocuments()==0) {
             String ventaAPersistir;
-            List<Document> docs = new ArrayList<Document>();
-            for(Venta v:ventas){
+            List<Document> documentosDeVenta = new ArrayList<Document>();
+            for (Venta v : ventas) {
                 ventaAPersistir = gson.toJson(v);
-                docs.add(Document.parse(ventaAPersistir));
+                documentosDeVenta.add(Document.parse(ventaAPersistir));
             }
-            collection.insertMany(docs);
-
-        }catch(Exception e){
-            System.out.println(e);
+            collection.insertMany(documentosDeVenta);
+        }else{
+            System.out.println("Ventas ya han sido ingresadas a Mongo");
         }
+
 
 
 

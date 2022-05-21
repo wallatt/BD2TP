@@ -1,11 +1,12 @@
 package org.unla;
 
 import org.unla.mongodbtp.entidades.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
+//Generacion de lista de objetos tipo Venta
 public class InstanciaDatos {
+    //Retorna una lista de ventas con atributos generados semialeatoriamente.
     public static List<Venta> instanciarVentas() {
         List<Venta> ventas = new ArrayList<Venta>();
 
