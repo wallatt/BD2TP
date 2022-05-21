@@ -1,0 +1,13 @@
+org\unla\mongodbtp\entidades\Tipo.class
+org\unla\mongodbtp\entidades\Metodos.class
+org\unla\mongodbtp\entidades\FormaPago.class
+org\unla\mongodbtp\entidades\Domicilio.class
+org\unla\App.class
+org\unla\MongoConnect.class
+org\unla\mongodbtp\entidades\Persona.class
+org\unla\mongodbtp\entidades\VentaDetalle.class
+org\unla\mongodbtp\entidades\Venta.class
+org\unla\mongodbtp\entidades\Laboratorio.class
+org\unla\mongodbtp\entidades\ObraSocial.class
+org\unla\mongodbtp\entidades\Producto.class
+org\unla\mongodbtp\entidades\Sucursal.class
